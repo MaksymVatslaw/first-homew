@@ -1,22 +1,41 @@
 class TimeConverter:
     """
-    convert time
+    A class for converting time between hours, minutes, and seconds.
+
+    Attributes:
+        hours (int): The hours component of the time.
+        minutes (int): The minutes component of the time.
+        seconds (int): The seconds component of the time.
     """
 
     def __init__(self, hours=0, minutes=0, seconds=0):
+        """
+        Initialize a TimeConverter object.
+
+        Args:
+            hours (int): The initial value for hours (default is 0).
+            minutes (int): The initial value for minutes (default is 0).
+            seconds (int): The initial value for seconds (default is 0).
+        """
         self.hours = hours
         self.minutes = minutes
         self.seconds = seconds
 
     def time_to_seconds(self):
         """
-        convert time yo second
+        Convert the time to total seconds.
+
+        Returns:
+            int: The total number of seconds.
         """
         return self.hours * 3600 + self.minutes * 60 + self.seconds
 
     def seconds_to_time(self, total_seconds):
         """
-        convert seconds to time
+        Convert total seconds to hours, minutes, and seconds.
+
+        Args:
+            total_seconds (int): The total number of seconds to convert.
         """
         self.hours = total_seconds // 3600
         self.minutes = (total_seconds % 3600) // 60
@@ -24,7 +43,7 @@ class TimeConverter:
 
     def output_converted_time(self):
         """
-        converted
+        Print the converted time in the format HH:MM:SS.
         """
         if self.minutes >= 60:
             hours = self.minutes // 60
@@ -38,10 +57,9 @@ class TimeConverter:
 
 
 def main():
-    '''
-    
-    :return: 
-    '''
+    """
+    The main function to demonstrate the TimeConverter class.
+    """
     converter = TimeConverter(1, 61, 54)
 
     total_seconds = converter.time_to_seconds()
